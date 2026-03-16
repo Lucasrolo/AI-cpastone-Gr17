@@ -28,5 +28,5 @@ This project is built using the renowned **PlantVillage dataset**, hosted on Hug
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/your-username/leaf-disease-identifier.git](https://github.com/your-username/leaf-disease-identifier.git)
+   git clone [https://github.com/Lucasrolo/AI-cpastone-Gr17.git](https://github.com/Lucasrolo/AI-cpastone-Gr17.git)
    cd leaf-disease-identifier
