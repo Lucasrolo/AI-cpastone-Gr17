@@ -8,6 +8,16 @@ import os
 
 app = FastAPI(title="Plant Disease API", description="API to predict plant diseases using the trained ResNet18 model")
 
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 # Detect hardware acceleration
 device = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
 
@@ -39,7 +49,7 @@ model.fc = nn.Linear(num_ftrs, 38)
 
 # Locate the saved model weights relative to the script
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-MODEL_PATH = os.path.join(BASE_DIR, "best_plant_disease_model.pth")
+MODEL_PATH = os.path.join(BASE_DIR, "model_training", "Saved_model", "best_plant_disease_model.pth")
 
 try:
     # Use map_location to ensure it loads perfectly on Mac CPU/MPS regardless of where it was trained
