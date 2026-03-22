@@ -5,7 +5,7 @@ import './PredictionResult.css';
 const PredictionResult = ({ result }) => {
   if (!result) return null;
 
-  const { status, plant, condition, confidence, message } = result;
+  const { status, plant, condition, confidence, message, treatments } = result;
   const isHealthy = condition?.toLowerCase() === 'healthy';
   const isUnknown = status === 'unknown';
 
@@ -60,7 +60,41 @@ const PredictionResult = ({ result }) => {
         </div>
       )}
       
-      {!isUnknown && !isHealthy && (
+      {!isUnknown && treatments && (
+        <div className="treatment-advice">
+          <h4><Info size={16} /> Treatment & Prevention</h4>
+          {isHealthy ? (
+            <div className="healthy-message">
+              <p>{treatments.preventative}</p>
+            </div>
+          ) : (
+            <div className="treatment-details">
+              <p className="treatment-intro">
+                Consider isolating this plant to prevent spread. Here are the recommended measures for <strong>{condition}</strong>:
+              </p>
+              {treatments.organic && treatments.organic !== "None" && treatments.organic !== "None." && (
+                <div className="treatment-item organic">
+                  <strong>Organic Treatment:</strong>
+                  <p>{treatments.organic}</p>
+                </div>
+              )}
+              {treatments.chemical && treatments.chemical !== "None" && treatments.chemical !== "None." && (
+                <div className="treatment-item chemical">
+                  <strong>Chemical Treatment:</strong>
+                  <p>{treatments.chemical}</p>
+                </div>
+              )}
+              {treatments.preventative && treatments.preventative !== "None" && treatments.preventative !== "None." && (
+                <div className="treatment-item preventative">
+                  <strong>Preventative Measures:</strong>
+                  <p>{treatments.preventative}</p>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+      )}
+      {!isUnknown && !treatments && !isHealthy && (
         <div className="treatment-advice">
           <h4><Info size={16} /> What to do next?</h4>
           <p>

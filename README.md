@@ -59,8 +59,7 @@ This project's model is trained using the renowned **PlantVillage dataset**, hos
 
 
 # Next Step 
-- To-do : 
-    - Add the treatment of the diseases. 
+- To-do :
     - Add a analisation of the leaves even if it is not some diseese like a leaf with not a lot of water or sun or other things like that. 
     - Add a feature to add new diseases to the model.
     - Add a feature to add new plants to the model.

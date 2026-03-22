@@ -5,6 +5,7 @@ from torchvision import models, transforms
 from PIL import Image
 import io
 import os
+import csv
 
 app = FastAPI(title="Plant Disease API", description="API to predict plant diseases using the trained ResNet18 model")
 
@@ -58,6 +59,20 @@ try:
 except Exception as e:
     print(f"⚠️ Warning: Could not load model from {MODEL_PATH}. Please ensure your model is saved! Error: {e}")
 
+CSV_PATH = os.path.join(BASE_DIR, "CSV_treatment_diseese.csv")
+treatments_db = {}
+try:
+    with open(CSV_PATH, mode='r', encoding='utf-8') as f:
+        reader = csv.DictReader(f, delimiter=';')
+        for row in reader:
+            treatments_db[row['Class_Name']] = {
+                "organic": row['Organic_Treatment'].strip(),
+                "chemical": row['Chemical_Treatment'].strip(),
+                "preventative": row['Preventative_Measure'].strip()
+            }
+except Exception as e:
+    print(f"⚠️ Warning: Could not load treatments CSV: {e}")
+
 model.to(device)
 model.eval()
 
@@ -100,10 +115,14 @@ async def predict_image(file: UploadFile = File(...)):
     raw_class = CLASS_NAMES[idx]
     clean = clean_class_name(raw_class)
 
+    treatment_info = treatments_db.get(raw_class, None)
+
     return {
         "status": "success",
         "plant": clean["plant"],
         "condition": clean["condition"],
         "confidence": round(conf_val * 100, 2),
-        "raw_class": raw_class
+        "raw_class": raw_class,
+        "treatments": treatment_info
     }
+
