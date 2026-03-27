@@ -96,3 +96,42 @@ a {
   70% { box-shadow: 0 0 0 15px rgba(76, 175, 80, 0); }
   100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
 }
+
+/* Professional Background Decorations */
+body::before, body::after {
+  content: '';
+  position: fixed;
+  z-index: -1;
+  border-radius: 50%; /* Blobs stay round for organic feel regardless of UI edges */
+  filter: blur(100px);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+body::before {
+  top: -10%;
+  left: -10%;
+  width: 40vw;
+  height: 40vw;
+  min-width: 400px;
+  min-height: 400px;
+  background: linear-gradient(135deg, rgba(46, 125, 50, 0.3), rgba(76, 175, 80, 0.15));
+  animation: float-blob 20s ease-in-out infinite alternate;
+}
+
+body::after {
+  bottom: -10%;
+  right: -5%;
+  width: 45vw;
+  height: 45vw;
+  min-width: 450px;
+  min-height: 450px;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(0, 150, 136, 0.08));
+  animation: float-blob 25s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes float-blob {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(3vw, 2vw) scale(1.05); }
+  100% { transform: translate(-1vw, 4vw) scale(0.95); }
+}
