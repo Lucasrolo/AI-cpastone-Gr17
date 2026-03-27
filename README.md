@@ -36,6 +36,10 @@ This project's model is trained using the renowned **PlantVillage dataset**, hos
    git clone https://github.com/Lucasrolo/AI-cpastone-Gr17.git
    cd AI-cpastone-Gr17
    ```
+   **in the terminal, Activate the venv before running the backend:
+   ```bash
+   source .venv/bin/activate
+   ```
 
 2. **Run the FastAPI Backend:**
    Install backend requirements and run the server. Note that you may want to do this within a localized virtual environment (like the pre-configured `.venv` directory).

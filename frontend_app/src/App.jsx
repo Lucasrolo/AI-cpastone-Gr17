@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Leaf } from 'lucide-react';
 import ImageUploader from './components/ImageUploader';
 import PredictionResult from './components/PredictionResult';
 import HowItWorks from './components/HowItWorks';
+import Header from './components/Header';
 import { predictDisease } from './api';
 
 function App() {
@@ -41,13 +41,7 @@ function App() {
 
   return (
     <div className="app-container">
-      <header className="app-header glass-panel">
-        <div className="logo-container">
-          <Leaf size={40} className="logo-icon" color="var(--primary)" />
-          <h1>PlantHealth AI</h1>
-        </div>
-        <p className="subtitle">Instant diagnostic tool for crop diseases</p>
-      </header>
+      <Header />
       
       <main className="main-content">
         <section className="upload-section">
