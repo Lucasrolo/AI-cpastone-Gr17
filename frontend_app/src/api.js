@@ -21,3 +21,17 @@ export const predictDisease = async (imageFile) => {
     throw error;
   }
 };
+
+export const fetchDiseases = async () => {
+  try {
+    const response = await fetch(`${API_URL}/diseases`);
+    if (!response.ok) {
+      throw new Error(`Server returned error: ${response.status}`);
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching diseases API:', error);
+    throw error;
+  }
+};

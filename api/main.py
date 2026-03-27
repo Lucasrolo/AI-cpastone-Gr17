@@ -126,3 +126,18 @@ async def predict_image(file: UploadFile = File(...)):
         "treatments": treatment_info
     }
 
+@app.get("/diseases")
+async def get_diseases():
+    """Returns a list of all supported diseases and their treatment information."""
+    diseases = []
+    for raw_class in CLASS_NAMES:
+        clean = clean_class_name(raw_class)
+        # Skip 'healthy' variations for the dictionary maybe? Or include them. Let's include everything.
+        treatment_info = treatments_db.get(raw_class, None)
+        diseases.append({
+            "plant": clean["plant"],
+            "condition": clean["condition"],
+            "raw_class": raw_class,
+            "treatments": treatment_info
+        })
+    return {"status": "success", "data": diseases}

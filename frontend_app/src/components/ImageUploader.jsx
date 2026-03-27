@@ -67,7 +67,7 @@ const ImageUploader = ({ onImageSelect, isLoading }) => {
           onDrop={handleDrop}
         >
           <div className="upload-content">
-            <UploadCloud size={48} className="upload-icon" />
+            <UploadCloud size={80} className="upload-icon" />
             <h3>Upload or capture a leaf</h3>
             <p className="upload-hint">Drag and drop, or choose an option below</p>
             
@@ -95,7 +95,7 @@ const ImageUploader = ({ onImageSelect, isLoading }) => {
             <input 
               type="file" 
               accept="image/*" 
-              capture="environment" 
+              capture="camera" 
               ref={cameraInputRef} 
               style={{display: 'none'}} 
               onChange={handleFileChange} 

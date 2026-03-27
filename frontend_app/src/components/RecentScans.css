@@ -1,0 +1,131 @@
+.recent-scans-container {
+  margin-top: 2rem;
+  padding: 1.5rem;
+}
+
+.recent-scans-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(46, 125, 50, 0.1);
+  padding-bottom: 0.5rem;
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.history-icon {
+  color: var(--primary);
+}
+
+.recent-scans-header h3 {
+  font-size: 1.25rem;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.btn-text-sm {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-decoration: underline;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-text-sm:hover {
+  color: var(--error);
+}
+
+.scans-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.scan-card {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(46, 125, 50, 0.1);
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.scan-card:hover {
+  transform: translateX(5px);
+  background: white;
+  border-color: rgba(46, 125, 50, 0.3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.scan-icon {
+  margin-right: 1rem;
+}
+
+.success-icon {
+  color: var(--success);
+}
+
+.warning-icon {
+  color: var(--warning);
+}
+
+.scan-details {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.scan-plant {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.scan-condition {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.scan-confidence {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-right: 1rem;
+  padding-right: 1rem;
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.conf-value {
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 0.95rem;
+}
+
+.conf-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.scan-time {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  min-width: 60px;
+  text-align: right;
+}
+
+@media (max-width: 600px) {
+  .scan-confidence {
+    display: none;
+  }
+}
