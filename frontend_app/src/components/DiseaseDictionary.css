@@ -197,7 +197,7 @@
   display: flex;
   align-items: flex-start;
   gap: 0.5rem;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   color: var(--text-muted);
   line-height: 1.4;
 }
@@ -215,7 +215,7 @@
   padding-top: 1rem;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
   color: #aaa;
-  font-size: 0.85rem;
+  font-size: 1.1rem;
   font-style: italic;
 }
 

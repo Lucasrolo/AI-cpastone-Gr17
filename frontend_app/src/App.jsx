@@ -66,7 +66,7 @@ function App() {
             onClick={() => setShowDictionary(true)}
             style={{
               display: 'flex', alignItems: 'center', gap: '0.75rem',
-              padding: '1rem 2rem', borderRadius: '9999px',
+              padding: '1rem 2rem', borderRadius: '0px',
               fontWeight: '700', fontSize: '1.1rem',
               background: 'white', color: 'var(--primary)',
               border: '2px solid var(--primary)',
