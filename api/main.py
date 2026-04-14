@@ -10,7 +10,13 @@ import json
 import base64
 import numpy as np
 import cv2
+import httpx
+import os
+from dotenv import load_dotenv
 from rembg import remove
+
+# Load environment variables from .env if present
+load_dotenv()
 
 # Try to register HEIC support for iPhone photos
 try:
@@ -415,4 +421,88 @@ async def health_check():
         "global_model_loaded": global_model is not None,
         "device": str(device),
         "supported_plants": SUPPORTED_PLANTS
+    }
+
+# ── PlantNet Mapping DB ───────────────────────────────────────────────────────
+PLANTNET_SPECIES_MAP = {
+    "malus domestica": "apple",
+    "prunus avium": "cherry",
+    "prunus cerasus": "cherry",
+    "zea mays": "corn",
+    "vitis vinifera": "grape",
+    "prunus persica": "peach",
+    "capsicum annuum": "pepper",
+    "solanum tuberosum": "potato",
+    "fragaria": "strawberry",
+    "solanum lycopersicum": "tomato"
+}
+
+@app.post("/identify")
+async def identify_plant(file: UploadFile = File(...)):
+    """
+    Identifies the plant using the Pl@ntNet API and checks if it matches one of our
+    supported models.
+    """
+    api_key = os.getenv("PLANTNET_API_KEY")
+    if not api_key:
+        return {"status": "error", "message": "PLANTNET_API_KEY is not configured in the backend (.env file)."}
+
+    contents = await file.read()
+    plantnet_url = f"https://my-api.plantnet.org/v2/identify/all?api-key={api_key}"
+    
+    async with httpx.AsyncClient() as client:
+        try:
+            files = {'images': (file.filename, contents, file.content_type or 'image/jpeg')}
+            data = {'organs': ['leaf']}
+            resp = await client.post(plantnet_url, files=files, data=data, timeout=15.0)
+            
+            if resp.status_code != 200:
+                if resp.status_code == 404:
+                    return {"status": "error", "message": "Pl@ntNet could not identify any plant in this image."}
+                return {"status": "error", "message": f"Pl@ntNet API returned status {resp.status_code}"}
+                
+            result = resp.json()
+        except Exception as exc:
+            return {"status": "error", "message": f"Failed to reach Pl@ntNet API: {str(exc)}"}
+
+    if not result.get("results"):
+        return {"status": "error", "message": "No plant species could be identified."}
+
+    top_match = result["results"][0]
+    scientific_name = top_match.get("species", {}).get("scientificNameWithoutAuthor", "").lower()
+    common_names = top_match.get("species", {}).get("commonNames", [])
+    score = top_match.get("score", 0.0)
+
+    identified_standard = None
+    
+    # 1. Exact map
+    if scientific_name in PLANTNET_SPECIES_MAP:
+        identified_standard = PLANTNET_SPECIES_MAP[scientific_name]
+    else:
+        # 2. Substring map
+        for key in PLANTNET_SPECIES_MAP:
+            if key in scientific_name:
+                identified_standard = PLANTNET_SPECIES_MAP[key]
+                break
+        
+        # 3. Common names fallback
+        if not identified_standard:
+            for c_name in common_names:
+                c_lower = c_name.lower()
+                for supported in SUPPORTED_PLANTS:
+                    # e.g. "corn (maize)" maps to "corn"
+                    if supported in c_lower or (supported == 'corn' and 'maize' in c_lower):
+                        identified_standard = supported
+                        break
+                if identified_standard:
+                    break
+
+    return {
+        "status": "success",
+        "identified_plant": identified_standard,
+        "plantnet_result": {
+            "scientific_name": top_match.get("species", {}).get("scientificNameWithoutAuthor", "Unknown"),
+            "common_names": common_names,
+            "score": score
+        }
     }

@@ -6,3 +6,5 @@ torchvision
 Pillow
 rembg[cli]
 opencv-python-headless
+httpx
+python-dotenv

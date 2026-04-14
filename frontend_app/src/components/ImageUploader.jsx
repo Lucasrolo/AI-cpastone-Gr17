@@ -22,6 +22,7 @@ const ImageUploader = ({ onImageSelect, onPlantSelect, selectedPlant, isLoading 
   const fileInputRef  = useRef(null);
   const cameraInputRef = useRef(null);
 
+
   const handlePlantChange = (e) => {
     const plant = e.target.value;
     // Reset image when plant changes
