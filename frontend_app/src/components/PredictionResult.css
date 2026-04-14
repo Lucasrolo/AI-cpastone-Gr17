@@ -38,6 +38,61 @@
   border-left: 6px solid var(--text-muted);
 }
 
+/* ── Out-of-scope cards ─────────────────────────────────────── */
+.result-card.out-of-scope {
+  border-left: 6px solid #d32f2f;
+  background: #fff5f5;
+}
+
+.result-card.wrong-plant {
+  border-left: 6px solid #e65100;
+  background: #fff8f0;
+}
+
+.oos-icon {
+  color: #d32f2f;
+  flex-shrink: 0;
+}
+
+.wrong-icon {
+  color: #e65100;
+  flex-shrink: 0;
+}
+
+.result-card.out-of-scope h3,
+.result-card.wrong-plant h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.oos-description {
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.oos-tips {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.oos-tips strong {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: var(--text-main);
+}
+
+.oos-tips ul {
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
 .status-icon.success {
   color: var(--success);
 }
@@ -171,4 +226,102 @@
   padding: 0.5rem;
   color: var(--success);
   font-weight: 500;
+}
+
+/* ── Top-3 predictions ──────────────────────────────────────── */
+.top3-section {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #eee;
+}
+
+.top3-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+}
+
+.top3-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  padding: 0.2rem 0;
+}
+
+.top3-class {
+  font-style: italic;
+}
+
+.top3-conf {
+  font-weight: 600;
+}
+
+/* ── Processed Image Section ──────────────────────────────────────── */
+.processed-image-container {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--primary-main);
+}
+
+.processed-image-container h4 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-main);
+}
+
+.processed-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.processed-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  background: #000;
+  box-shadow: var(--shadow-sm);
+  flex-shrink: 0;
+}
+
+.processed-text {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ── Amazon Links ─────────────────────────────────────────────────── */
+.amazon-links-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.amazon-link-button {
+  display: inline-flex;
+  align-items: center;
+  background-color: #ff9900;
+  color: #111;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: all 0.2s ease;
+}
+
+.amazon-link-button:hover {
+  background-color: #e68a00;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
