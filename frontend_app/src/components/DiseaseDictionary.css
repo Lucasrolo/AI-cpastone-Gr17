@@ -226,3 +226,48 @@
   color: var(--text-muted);
   font-size: 1.1rem;
 }
+
+/* \u2500\u2500 Mobile responsive \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 */
+@media (max-width: 768px) {
+  .dictionary-overlay {
+    padding: 1rem;
+  }
+  .dictionary-modal {
+    height: 90vh;
+  }
+  .diseases-grid {
+    grid-template-columns: 1fr;
+  }
+  .dictionary-header {
+    padding: 1rem 1.25rem;
+  }
+  .dictionary-header h2 {
+    font-size: 1.25rem;
+  }
+  .dictionary-search, .dictionary-content {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dictionary-overlay {
+    padding: 0;
+  }
+  .dictionary-modal {
+    height: 100vh;
+    border-radius: 0;
+  }
+  .search-bar input {
+    font-size: 0.95rem;
+    padding: 0.85rem 1rem 0.85rem 2.75rem;
+  }
+  .disease-card {
+    padding: 1.25rem;
+  }
+  .card-header h4 {
+    font-size: 1rem;
+  }
+  .treatment-item {
+    font-size: 1rem;
+  }
+}

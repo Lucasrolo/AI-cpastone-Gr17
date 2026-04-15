@@ -208,7 +208,52 @@
   color: var(--primary);
 }
 
-/* ── Fade Slide Up Animation ─────────────────────────────────────────────── */
+/* \u2500\u2500 Mobile responsive \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 */
+@media (max-width: 768px) {
+  .plant-identifier-section {
+    padding: 1.5rem 1.25rem;
+    margin-top: 2rem;
+  }
+  .plant-identifier-header h2 {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .plant-identifier-section {
+    padding: 1.25rem 1rem;
+    margin-top: 1.5rem;
+  }
+  .plant-identifier-header h2 {
+    font-size: 1.25rem;
+  }
+  .plant-identifier-subtitle {
+    font-size: 0.88rem;
+  }
+  .identifier-upload-area {
+    padding: 1.5rem 1rem;
+  }
+  .identifier-upload-area h3 {
+    font-size: 1.1rem;
+  }
+  /* Result card: stack vertically */
+  .identifier-result-card {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+  .result-text h4 {
+    font-size: 1rem;
+  }
+  .result-scientific {
+    font-size: 0.85rem;
+  }
+  .result-tip {
+    font-size: 0.85rem;
+  }
+}
+
+/* \u2500\u2500 Fade Slide Up Animation \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 */
 @keyframes fadeSlideUp {
   from {
     opacity: 0;

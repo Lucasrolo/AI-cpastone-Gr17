@@ -124,8 +124,31 @@
   text-align: right;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 480px) {
+  .recent-scans-container {
+    padding: 1rem 0.75rem;
+    margin-top: 1.5rem;
+  }
+  .recent-scans-header h3 {
+    font-size: 1.1rem;
+  }
+  .scan-card {
+    padding: 0.75rem;
+  }
+  .scan-icon {
+    margin-right: 0.75rem;
+  }
+  .scan-plant {
+    font-size: 0.9rem;
+  }
+  .scan-condition {
+    font-size: 0.8rem;
+  }
   .scan-confidence {
     display: none;
+  }
+  .scan-time {
+    font-size: 0.75rem;
+    min-width: 50px;
   }
 }

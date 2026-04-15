@@ -81,20 +81,11 @@ function App() {
       <Header />
 
       <main className="main-content">
-        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.5rem', gap: '1rem', flexWrap: 'wrap' }}>
+        <div className="top-nav-buttons">
           <button
+            id="open-disease-library"
+            className="top-nav-btn top-nav-btn--outline"
             onClick={() => setShowDictionary(true)}
-            style={{
-              display: 'flex', alignItems: 'center', gap: '0.75rem',
-              padding: '0.75rem 1.5rem', borderRadius: 'var(--radius-md)',
-              fontWeight: '600', fontSize: '1rem',
-              background: 'white', color: 'var(--primary)',
-              border: '2px solid var(--primary)',
-              cursor: 'pointer', boxShadow: '0 4px 10px rgba(0,0,0,0.05)',
-              transition: 'all 0.2s ease-in-out'
-            }}
-            onMouseOver={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; }}
-            onMouseOut={(e) => { e.currentTarget.style.transform = 'translateY(0)'; }}
           >
             <BookOpen size={20} />
             <span>Open Disease Library</span>
@@ -102,17 +93,7 @@ function App() {
 
           <a
             href="#plant-identifier"
-            style={{
-              display: 'flex', alignItems: 'center', gap: '0.75rem',
-              padding: '0.75rem 1.5rem', borderRadius: 'var(--radius-md)',
-              fontWeight: '600', fontSize: '1rem',
-              background: 'var(--primary)', color: 'white',
-              border: '2px solid var(--primary)', textDecoration: 'none',
-              cursor: 'pointer', boxShadow: '0 4px 10px rgba(0,0,0,0.05)',
-              transition: 'all 0.2s ease-in-out'
-            }}
-            onMouseOver={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; }}
-            onMouseOut={(e) => { e.currentTarget.style.transform = 'translateY(0)'; }}
+            className="top-nav-btn top-nav-btn--solid"
           >
             <span>Don't know the type of plant you have? <strong>Click Here</strong></span>
           </a>

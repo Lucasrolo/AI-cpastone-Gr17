@@ -153,3 +153,79 @@ body::after {
   50% { transform: translate(3vw, 2vw) scale(1.05); }
   100% { transform: translate(-1vw, 4vw) scale(0.95); }
 }
+
+/* \u2500\u2500 App-level mobile responsive \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 1.25rem 0.75rem;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-container {
+    padding: 0.75rem 0.5rem;
+    gap: 1.5rem;
+  }
+  .error-message {
+    font-size: 0.88rem;
+    padding: 0.75rem 1rem;
+  }
+}
+
+/* \u2500\u2500 Top navigation buttons \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 */
+.top-nav-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.top-nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.975rem;
+  font-family: inherit;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+  white-space: normal;
+  text-align: center;
+  line-height: 1.35;
+}
+
+.top-nav-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+}
+
+.top-nav-btn--outline {
+  background: white;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+.top-nav-btn--solid {
+  background: var(--primary);
+  color: white;
+  border: 2px solid var(--primary);
+}
+
+@media (max-width: 480px) {
+  .top-nav-buttons {
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+  .top-nav-btn {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 0.7rem 1rem;
+  }
+}
