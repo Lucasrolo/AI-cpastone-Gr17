@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Camera, Image as ImageIcon, Search, Leaf, CheckCircle, XCircle } from 'lucide-react';
+import CameraModal from './CameraModal';
 import { identifyPlantType } from '../api';
 import './PlantIdentifier.css';
 
@@ -8,9 +9,9 @@ const PlantIdentifier = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
+  const [showCamera, setShowCamera] = useState(false);
 
   const fileInputRef = useRef(null);
-  const cameraInputRef = useRef(null);
 
   const handleFile = async (file) => {
     if (!file || !file.type.match('image.*')) {
@@ -79,7 +80,7 @@ const PlantIdentifier = () => {
             <p>Take a picture or browse your files</p>
 
             <div className="identifier-upload-actions">
-              <button className="btn-primary" onClick={() => cameraInputRef.current.click()}>
+              <button className="btn-primary" onClick={() => setShowCamera(true)}>
                 <Camera size={18} />
                 <span>Take a Picture</span>
               </button>
@@ -89,11 +90,6 @@ const PlantIdentifier = () => {
               </button>
             </div>
 
-            <input
-              type="file" accept="image/*" capture="camera"
-              ref={cameraInputRef} style={{ display: 'none' }}
-              onChange={handleFileChange}
-            />
             <input
               type="file" accept="image/*"
               ref={fileInputRef} style={{ display: 'none' }}
@@ -162,6 +158,12 @@ const PlantIdentifier = () => {
           </div>
         )}
       </div>
+
+      <CameraModal
+        isOpen={showCamera}
+        onClose={() => setShowCamera(false)}
+        onCapture={(file) => handleFile(file)}
+      />
     </section>
   );
 };

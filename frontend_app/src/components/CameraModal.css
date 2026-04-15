@@ -1,0 +1,145 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   CameraModal.css — Full-screen live webcam capture overlay
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.camera-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+  animation: camFadeIn 0.2s ease;
+}
+
+.camera-modal {
+  position: relative;
+  width: 90vw;
+  max-width: 640px;
+  background: #111;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* ── Close Button ─────────────────────────────────────────────────────── */
+.camera-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.camera-modal-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ── Viewport ─────────────────────────────────────────────────────────── */
+.camera-viewport {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.camera-feed {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.camera-loading,
+.camera-error {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+.camera-error p {
+  color: #ef9a9a;
+}
+
+/* ── Controls ─────────────────────────────────────────────────────────── */
+.camera-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1.25rem;
+  background: #111;
+}
+
+.camera-shutter-btn {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 3px solid white;
+  background: var(--primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.15);
+}
+
+.camera-shutter-btn:hover:not(:disabled) {
+  transform: scale(1.08);
+  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.25);
+}
+
+.camera-shutter-btn:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.camera-shutter-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.camera-flip-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.camera-flip-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* ── Animation ────────────────────────────────────────────────────────── */
+@keyframes camFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

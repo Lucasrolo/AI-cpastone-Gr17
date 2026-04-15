@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Camera, UploadCloud, Image as ImageIcon, Leaf, ChevronDown } from 'lucide-react';
+import CameraModal from './CameraModal';
 import './ImageUploader.css';
 
 // Plants supported by per-plant models — must match API SUPPORTED_PLANTS list
@@ -18,9 +19,9 @@ const PLANT_OPTIONS = [
 const ImageUploader = ({ onImageSelect, onPlantSelect, selectedPlant, isLoading }) => {
   const [dragActive, setDragActive] = useState(false);
   const [previewUrl, setPreviewUrl] = useState(null);
+  const [showCamera, setShowCamera] = useState(false);
 
-  const fileInputRef  = useRef(null);
-  const cameraInputRef = useRef(null);
+  const fileInputRef = useRef(null);
 
 
   const handlePlantChange = (e) => {
@@ -120,7 +121,7 @@ const ImageUploader = ({ onImageSelect, onPlantSelect, selectedPlant, isLoading 
                 <div className="upload-actions">
                   <button
                     className="btn-primary"
-                    onClick={() => cameraInputRef.current.click()}
+                    onClick={() => setShowCamera(true)}
                     disabled={isLoading}
                   >
                     <Camera size={20} />
@@ -137,12 +138,7 @@ const ImageUploader = ({ onImageSelect, onPlantSelect, selectedPlant, isLoading 
                   </button>
                 </div>
 
-                {/* Hidden inputs */}
-                <input
-                  type="file" accept="image/*" capture="camera"
-                  ref={cameraInputRef} style={{ display: 'none' }}
-                  onChange={handleFileChange}
-                />
+                {/* Hidden file input */}
                 <input
                   type="file" accept="image/*"
                   ref={fileInputRef} style={{ display: 'none' }}
@@ -178,6 +174,12 @@ const ImageUploader = ({ onImageSelect, onPlantSelect, selectedPlant, isLoading 
           <p>Select a plant above to start the analysis</p>
         </div>
       )}
+
+      <CameraModal
+        isOpen={showCamera}
+        onClose={() => setShowCamera(false)}
+        onCapture={(file) => handleFile(file)}
+      />
     </div>
   );
 };
