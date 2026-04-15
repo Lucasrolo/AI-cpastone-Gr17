@@ -40,6 +40,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get("/")
+async def root():
+    return {"message": "Plant Disease Detection API is running!", "status": "alive"}
+
 # ── Hardware ──────────────────────────────────────────────────────────────────
 device = torch.device(
     "cuda" if torch.cuda.is_available()
