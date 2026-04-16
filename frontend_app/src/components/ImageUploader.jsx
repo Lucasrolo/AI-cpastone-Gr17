@@ -116,7 +116,10 @@ const ImageUploader = ({ onImageSelect, onPlantSelect, selectedPlant, isLoading 
               <div className="upload-content">
                 <UploadCloud size={80} className="upload-icon" />
                 <h3>Upload or capture a leaf</h3>
-                <p className="upload-hint">Drag and drop, or choose an option below</p>
+                <p className="upload-hint" style={{ marginBottom: '0.25rem' }}>Drag and drop, or choose an option below</p>
+                <p style={{ fontSize: '0.9rem', fontStyle: 'italic', color: 'var(--text-muted)', marginBottom: '1.5rem' }}>
+                  For better results, take a picture of one single leaf.
+                </p>
 
                 <div className="upload-actions">
                   <button

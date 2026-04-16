@@ -54,10 +54,11 @@ print(f"Using device: {device}")
 
 # ── Paths ─────────────────────────────────────────────────────────────────────
 BASE_DIR            = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PER_PLANT_MODEL_DIR = os.path.join(BASE_DIR, "model_training", "per_plant_models")
-GLOBAL_MODEL_PATH   = os.path.join(BASE_DIR, "model_training", "Saved_model", "best_plant_disease_model.pth")
-CSV_PATH            = os.path.join(BASE_DIR, "CSV_treatment_diseese.csv")
-AMAZON_CSV_PATH     = os.path.join(BASE_DIR, "amazon_links_table.csv")
+API_DIR             = os.path.join(BASE_DIR, "api")
+PER_PLANT_MODEL_DIR = os.path.join(API_DIR, "models", "per_plant_models")
+GLOBAL_MODEL_PATH   = os.path.join(API_DIR, "models", "best_plant_disease_model.pth")
+CSV_PATH            = os.path.join(API_DIR, "data", "CSV_treatment_diseese.csv")
+AMAZON_CSV_PATH     = os.path.join(API_DIR, "data", "amazon_links_table.csv")
 
 # ── Global class names (38 classes, original model) ───────────────────────────
 GLOBAL_CLASS_NAMES = [
@@ -372,6 +373,15 @@ async def predict_image(
         }
 
     # ── SUCCESS ───────────────────────────────────────────────────────────────
+    # Override low-confidence disease predictions to "healthy" (75% threshold)
+    if "healthy" not in raw_class.lower() and "other_plant" not in raw_class.lower() and plant_conf < 0.75:
+        for idx_str, class_name in label_map.items():
+            if "healthy" in class_name.lower():
+                raw_class = class_name
+                # We also recalculate the confidence so it isn't confusingly low for healthy
+                plant_conf = 0.75 
+                break
+
     clean      = clean_class_name(raw_class)
     treatments = treatments_db.get(raw_class, None)
 

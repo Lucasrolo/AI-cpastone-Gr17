@@ -13,7 +13,7 @@ const Header = () => {
         </div>
         
         <h1 className="hero-title">
-          <span className="gradient-text">PlantHealth</span> AI
+          <span className="gradient-text">Longevity</span>
         </h1>
         
         <p className="hero-subtitle">

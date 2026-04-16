@@ -173,6 +173,9 @@ const PredictionResult = ({ result }) => {
               <p className="treatment-intro">
                 Consider isolating this plant to prevent spread. Here are the recommended measures for <strong>{condition}</strong>:
               </p>
+              <div style={{ backgroundColor: 'rgba(255, 152, 0, 0.1)', borderLeft: '4px solid var(--warning)', padding: '0.75rem 1rem', borderRadius: '4px', marginBottom: '1rem', fontSize: '0.9rem', color: 'var(--text-main)', fontStyle: 'italic' }}>
+                💡 <strong>Tip:</strong> For more accuracy, analyse other pictures of the plant from different angles.
+              </div>
               {treatments.organic && treatments.organic !== 'None' && treatments.organic !== 'None.' && (
                 <div className="treatment-item organic">
                   <strong>Organic Treatment:</strong>

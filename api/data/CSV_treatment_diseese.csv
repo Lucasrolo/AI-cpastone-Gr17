@@ -1,0 +1,39 @@
+Class_Name;Organic_Treatment;Chemical_Treatment;Preventative_Measure
+Apple___Apple_scab;Spray with Neem oil or sulfur-based fungicides.;Apply fungicides containing Captan or Myclobutanil.;Rake and destroy fallen leaves in autumn; prune trees to increase airflow.
+Apple___Black_rot;Apply copper-based fungicides early in the season.;Apply fungicides containing Mancozeb or Myclobutanil.;Prune out infected cankers during dormancy; remove mummified fruit; ensure good sunlight canopy.
+Apple___Cedar_apple_rust;Apply copper sprays preventatively in early spring.;Apply fungicides containing Myclobutanil.;Remove nearby Eastern Red Cedar trees (the alternate host); plant rust-resistant apple varieties.
+Apple___healthy;None;None;The leaf seems to be healthy, keep going like that!
+Blueberry___healthy;None;None;The leaf seems to be healthy, keep going like that!
+Cherry_(including_sour)___Powdery_mildew;Spray with Neem oil, potassium bicarbonate, or a milk-water mixture.;Apply sulfur-based fungicides or Chlorothalonil.;Ensure good airflow; water at the base of the plant in the morning; avoid high-nitrogen fertilizers.
+Cherry_(including_sour)___healthy;None;None;The leaf seems to be healthy, keep going like that!
+Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot;Apply copper-based fungicides.;Apply fungicides containing Chlorothalonil.;Practice crop rotation; control weeds; avoid overhead watering to keep foliage dry.
+Corn_(maize)___Common_rust_;Spray with Neem oil at the first sign of pustules.;Apply fungicides containing Mancozeb.;Plant rust-resistant varieties; clean up and destroy plant debris at the end of the season.
+Corn_(maize)___Northern_Leaf_Blight;(Limited effectiveness) Preventative copper sprays.;Apply commercial agricultural fungicides (e.g. containing Propiconazole).;Rotate crops away from corn for 1-2 years; till crop residue deep into the soil.
+Corn_(maize)___healthy;None;None;The leaf seems to be healthy, keep going like that!
+Grape___Black_rot;Apply copper-based fungicides early in the season.;Apply fungicides containing Mancozeb or Myclobutanil.;Prune out infected cankers; remove mummified fruit; ensure good sunlight canopy.
+Grape___Esca_(Black_Measles);None effective once the vine is infected.;None effective once the vine is infected.;Practice careful pruning; protect pruning wounds with paste; remove and burn infected vines.
+Grape___Leaf_blight_(Isariopsis_Leaf_Spot);Apply copper-based fungicides.;Apply fungicides containing Mancozeb.;Remove leaf litter from the ground; prune vines to ensure strong airflow.
+Grape___healthy;None;None;The leaf seems to be healthy, keep going like that!
+Orange___Haunglongbing_(Citrus_greening);None. This is a fatal bacterial disease.;Insecticides can be used to control the Asian citrus psyllid (the bug that spreads it).;Quarantine alert: Immediately remove and destroy the tree. Contact local agricultural extensions.
+Peach___Bacterial_spot;Apply copper sprays (slows spread, does not cure).;(Commercial only) Streptomycin sprays.;Buy certified disease-free seeds; avoid overhead watering; practice strict crop rotation.
+Peach___healthy;None;None;The leaf seems to be healthy, keep going like that!
+Pepper,_bell___Bacterial_spot;Apply copper sprays (slows spread, does not cure).;(Commercial only) Streptomycin sprays.;Buy certified disease-free seeds; avoid overhead watering; practice strict crop rotation.
+Pepper,_bell___healthy;None;None;The leaf seems to be healthy, keep going like that!
+Potato___Early_blight;Apply copper fungicides or Bacillus subtilis.;Apply fungicides containing Chlorothalonil or Mancozeb.;Apply thick mulch around the base of the plant to prevent soil splashing; remove lower leaves.
+Potato___Late_blight;Preventative copper fungicides (useless after infection starts).;Apply fungicides containing Chlorothalonil.;Destroy infected plants immediately (do not compost); plant resistant varieties; ensure good drainage.
+Potato___healthy;None;None;The leaf seems to be healthy, keep going like that!
+Raspberry___healthy;None;None;The leaf seems to be healthy, keep going like that!
+Soybean___healthy;None;None;The leaf seems to be healthy, keep going like that!
+Squash___Powdery_mildew;Spray with Neem oil, potassium bicarbonate, or a milk-water mixture.;Apply sulfur-based fungicides or Chlorothalonil.;Ensure good airflow; water at the base of the plant in the morning; avoid high-nitrogen fertilizers.
+Strawberry___Leaf_scorch;Remove and destroy heavily infected leaves.;Copper fungicides (rarely needed for scorch).;Ensure good soil drainage; avoid over-fertilizing with nitrogen; renew strawberry patches every 3 years.
+Strawberry___healthy;None;None;The leaf seems to be healthy, keep going like that!
+Tomato___Bacterial_spot;Apply copper sprays (slows spread, does not cure).;(Commercial only) Streptomycin sprays.;Buy certified disease-free seeds; avoid overhead watering; practice strict crop rotation.
+Tomato___Early_blight;Apply copper fungicides or Bacillus subtilis.;Apply fungicides containing Chlorothalonil or Mancozeb.;Apply thick mulch around the base of the plant to prevent soil splashing; remove lower leaves.
+Tomato___Late_blight;Preventative copper fungicides (useless after infection starts).;Apply fungicides containing Chlorothalonil.;Destroy infected plants immediately (do not compost); plant resistant varieties; ensure good drainage.
+Tomato___Leaf_Mold;Increase ventilation immediately; apply copper fungicides.;Apply fungicides containing Chlorothalonil.;Space plants widely; stake tomatoes to keep them off the ground; keep greenhouse humidity below 85%.
+Tomato___Septoria_leaf_spot;Apply copper sprays or potassium bicarbonate.;Apply fungicides containing Chlorothalonil.;Remove diseased leaves early; mulch heavily to prevent soil splashing; water only at the soil level.
+Tomato___Spider_mites Two-spotted_spider_mite;Apply insecticidal soap, Neem oil, or introduce predatory ladybugs.;Apply specialized miticides (e.g. containing Bifenthrin).;Keep plants well-watered (mites thrive in drought); regularly mist leaves with water to disrupt webs.
+Tomato___Target_Spot;Apply copper-based fungicides.;Apply fungicides containing Chlorothalonil or Mancozeb.;Improve canopy airflow; avoid excessive nitrogen fertilizer; prune the lower canopy.
+Tomato___Tomato_Yellow_Leaf_Curl_Virus;None.;Apply systemic insecticides to kill whiteflies (the bugs that spread the virus).;Control whitefly populations; use reflective silver mulch; immediately remove and destroy infected plants.
+Tomato___Tomato_mosaic_virus;None.;None.;Wash hands/tools with soap or bleach after touching plants; do not use tobacco near plants; destroy infected plants.
+Tomato___healthy;None;None;The leaf seems to be healthy, keep going like that!
